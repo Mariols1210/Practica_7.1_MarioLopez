@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane prefHeight="500.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mario_pr51.BD.Reporte">
+
+    <tabs>
+
+        <Tab text="Generar Factura">
+            <content>
+                <AnchorPane>
+
+                    <Rectangle fill="#3498db" height="80" layoutX="0" layoutY="0" width="800" />
+
+
+                    <Text fill="WHITE" layoutX="250.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ELECTRICITY S.A">
+                        <font>
+                            <Font name="Arial" size="28.0" />
+                        </font>
+                    </Text>
+
+
+                    <Rectangle fill="WHITE" height="300.0" layoutX="50.0" layoutY="100.0" width="700.0" />
+
+
+                    <Text fill="#2c3e50" layoutX="100.0" layoutY="140.0" text="GENERADOR DE FACTURAS">
+                        <font>
+                            <Font name="Arial" size="22.0" />
+                        </font>
+                    </Text>
+
+
+                    <Text fill="#666666" layoutX="100.0" layoutY="180.0" text="Genere su factura en PDF con los consumos por tramos horarios." wrappingWidth="600.0">
+                        <font>
+                            <Font name="Arial" size="16.0" />
+                        </font>
+                    </Text>
+
+
+                    <Text fill="#666666" layoutX="100.0" layoutY="220.0" text="✓ Consumo por tramos (Punta/Llano/Valle)" wrappingWidth="600.0">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </Text>
+
+                    <Text fill="#666666" layoutX="100.0" layoutY="250.0" text="✓ Gráficos de distribución" wrappingWidth="600.0">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </Text>
+
+                    <Text fill="#666666" layoutX="100.0" layoutY="280.0" text="✓ Detalles completos del cliente" wrappingWidth="600.0">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </Text>
+
+
+                    <Button fx:id="btn_generar" layoutX="300.0" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="DESCARGAR FACTURA">
+                        <font>
+                            <Font name="Arial" size="16.0" />
+                        </font>
+                    </Button>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+        <Tab text="Análisis de Consumo">
+            <content>
+                <AnchorPane>
+                    <Rectangle fill="#3498db" height="60" layoutX="0" layoutY="0" width="800" />
+
+                    <Text fill="WHITE" layoutX="280.0" layoutY="40.0" text="ANALISIS DE CONSUMO">
+                        <font>
+                            <Font name="Arial" size="22.0" />
+                        </font>
+                    </Text>
+
+                    <Rectangle fill="WHITE" height="350.0" layoutX="20.0" layoutY="80.0" width="500.0" />
+
+                    <Text fill="#2c3e50" layoutX="40.0" layoutY="110.0" text="GRAFICO DE CONSUMO">
+                        <font>
+                            <Font name="Arial" size="18.0" />
+                        </font>
+                    </Text>
+
+                    <BarChart fx:id="consumoBarras" layoutX="40.0" layoutY="130.0" prefHeight="280.0" prefWidth="460.0">
+                        <xAxis>
+                            <CategoryAxis fx:id="ejeX" side="BOTTOM" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="ejeY" side="LEFT" />
+                        </yAxis>
+                    </BarChart>
+
+                    <Rectangle fill="WHITE" height="350.0" layoutX="540.0" layoutY="80.0" width="240.0" />
+
+                    <Text fill="#2c3e50" layoutX="560.0" layoutY="110.0" text="CONFIGURACION">
+                        <font>
+                            <Font name="Arial" size="18.0" />
+                        </font>
+                    </Text>
+
+                    <Text fill="#666666" layoutX="560.0" layoutY="150.0" text="MES:">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </Text>
+
+                    <ChoiceBox fx:id="choicebox_meses" layoutX="560.0" layoutY="170.0" prefHeight="35.0" prefWidth="200.0" />
+
+                    <Text fill="#666666" layoutX="560.0" layoutY="230.0" text="TRAMOS:">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </Text>
+                    <CheckBox fx:id="c_punta" layoutX="560.0" layoutY="250.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" selected="true" text="PUNTA">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </CheckBox>
+
+                    <CheckBox fx:id="c_llano" layoutX="560.0" layoutY="280.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" selected="true" text="LLANO">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </CheckBox>
+
+                    <CheckBox fx:id="c_valle" layoutX="560.0" layoutY="310.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" selected="true" text="VALLE">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </CheckBox>
+
+
+                    <Text fill="#666666" layoutX="560.0" layoutY="360.0" text="HORARIOS:">
+                        <font>
+                            <Font name="Arial" size="14.0" />
+                        </font>
+                    </Text>
+
+                    <Text fill="#666666" layoutX="560.0" layoutY="385.0" text="Punta: 10h-14h, 18h-22h">
+                        <font>
+                            <Font name="Arial" size="12.0" />
+                        </font>
+                    </Text>
+
+                    <Text fill="#666666" layoutX="560.0" layoutY="405.0" text="Llano: 8h-10h, 14h-18h, 22h-24h">
+                        <font>
+                            <Font name="Arial" size="12.0" />
+                        </font>
+                    </Text>
+
+                    <Text fill="#666666" layoutX="560.0" layoutY="425.0" text="Valle: 0h-8h, fines semana">
+                        <font>
+                            <Font name="Arial" size="12.0" />
+                        </font>
+                    </Text>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
